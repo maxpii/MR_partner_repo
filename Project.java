@@ -28,6 +28,17 @@ public class Project{
 		return arr;
 	}
 
+	public int Part2(int[][] arr){
+		int rows = arr.length;
+		int cols = arr[0].length;
+		for(int i = 0; i<rows; i++){
+			for(int j = 0; j<cols; j++){
+				if(arr[i][j]%2==0) return arr[i][j];
+			}
+		}
+		return 0;
+	}
+
 	public static void main(String[] args){
 		Project project = new Project();
 	}
