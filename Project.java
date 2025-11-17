@@ -33,10 +33,11 @@ public class Project{
 		int cols = arr[0].length;
 		for(int i = 1; i<rows-1; i++){
 			for(int j = 1; j<cols-1; j++){
-				if(arr[i][j]%2==0)
-					if(arr[i][j-1] > 33 && arr[i][j+1]>33 && arr[i-1][j] > 33 && arr[i+1][j]>33){
-						return arr[i][j];
-					}
+				if(arr[i][j]%2!=0) continue;
+
+				if(arr[i][j-1] > 33 && arr[i][j+1]>33 && arr[i-1][j] > 33 && arr[i+1][j]>33){
+					return arr[i][j];
+				}
 			}
 		}
 		return 0;
