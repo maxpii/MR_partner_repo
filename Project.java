@@ -33,7 +33,13 @@ public class Project{
 		int cols = arr[0].length;
 		for(int i = 0; i<rows; i++){
 			for(int j = 0; j<cols; j++){
-				if(arr[i][j]%2==0) return arr[i][j];
+				if(arr[i][j]%2==0)
+					if(j>0 && j<cols-1)
+						if(arr[i][j-1] + arr[i][j+1] > 17) return arr[i][j];
+					else if(j>0)
+						if(arr[i][j-1] > 17) return arr[i][j];
+					else if(j<cols-1)
+						if(arr[i][j+1] > 17) return arr[i][j];
 			}
 		}
 		return 0;
@@ -41,5 +47,7 @@ public class Project{
 
 	public static void main(String[] args){
 		Project project = new Project();
+		int[][] arr = {{12,2,17,4},{5,6,7,8}};
+		System.out.println(project.Part2(arr));
 	}
 }
