@@ -31,15 +31,12 @@ public class Project{
 	public int Part2(int[][] arr){
 		int rows = arr.length;
 		int cols = arr[0].length;
-		for(int i = 0; i<rows; i++){
-			for(int j = 0; j<cols; j++){
+		for(int i = 1; i<rows-1; i++){
+			for(int j = 1; j<cols-1; j++){
 				if(arr[i][j]%2==0)
-					if(j>0 && j<cols-1)
-						if(arr[i][j-1] + arr[i][j+1] > 17) return arr[i][j];
-					else if(j>0)
-						if(arr[i][j-1] > 17) return arr[i][j];
-					else if(j<cols-1)
-						if(arr[i][j+1] > 17) return arr[i][j];
+					if(arr[i][j-1] > 33 && arr[i][j+1]>33 && arr[i-1][j] > 33 && arr[i+1][j]>33){
+						return arr[i][j];
+					}
 			}
 		}
 		return 0;
@@ -47,7 +44,7 @@ public class Project{
 
 	public static void main(String[] args){
 		Project project = new Project();
-		int[][] arr = {{12,2,17,4},{5,6,7,8}};
+		int[][] arr = {{12,34,17,4},{34,6,34,8},{9,34,11,12},{13,14,15,16}};
 		System.out.println(project.Part2(arr));
 	}
 }
